@@ -3,7 +3,7 @@ const axios = require('axios');
 const instance = axios.create({
   baseURL: 'http://api.openweathermap.org/data/2.5',
   params: {
-    APPID: '11968cd850d06577bf436eec5f63a333',
+    APPID: process.env.APPID,
     units: 'metric'
   }
 });

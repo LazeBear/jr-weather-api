@@ -1,6 +1,7 @@
 const express = require('express');
+require('dotenv').config();
 const app = express();
-const port = 8181;
+const port = process.env.PORT || 8181;
 const axios = require('./services/axios');
 const Weather = require('./model/Weather');
 
