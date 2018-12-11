@@ -6,11 +6,12 @@ const axios = require('../services/axios');
 
 class Weather {
   constructor() {}
-  getData(city, country) {
+  getData(city, country, type = 'all') {
     const key = `${city}/${country}`;
     if (cache.get(key)) {
       return new Promise((res, rej) => {
-        res(cache.get(key));
+        const data = cache.get(key);
+        res(filterData(data, type));
       });
     }
     return Promise.all(getWeatherData(city, country)).then(dataArray => {
@@ -24,9 +25,22 @@ class Weather {
       };
       //   console.log(weather);
       cache.set(key, weather);
+      filterData(weather, type);
       return weather;
     });
   }
+}
+
+function filterData(data, type) {
+  if (type === 'current') {
+    delete data.forecast;
+    return data;
+  }
+  if (type === 'forecast') {
+    delete data.current;
+    return data;
+  }
+  return data;
 }
 
 function getWeatherData(city, cc) {
