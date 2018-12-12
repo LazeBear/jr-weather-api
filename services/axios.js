@@ -9,12 +9,10 @@ const instance = axios.create({
 });
 // instance.interceptors.request.use(
 //   function(config) {
-//     console.log('config', config);
 //     // Do something before request is sent
 //     return config;
 //   },
 //   function(error) {
-//     console.log(error);
 //     // Do something with request error
 //     return Promise.reject(error);
 //   }

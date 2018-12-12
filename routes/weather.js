@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const weather = require('../model/Weather');
 const responseFormatter = require('../services/responseFormatter');
+const countryValidator = require('../middleware/countryValidator');
 
 // https://expressjs.com/en/guide/error-handling.html
-router.get('/:cc/:city/all', (req, res, next) => {
+router.get('/:cc/:city/all', countryValidator, (req, res, next) => {
   const { city, cc } = req.params;
   weather
     .getData(city, cc)
@@ -14,7 +15,7 @@ router.get('/:cc/:city/all', (req, res, next) => {
     });
 });
 
-router.get('/:cc/:city/current', (req, res, next) => {
+router.get('/:cc/:city/current', countryValidator, (req, res, next) => {
   const { city, cc } = req.params;
   weather
     .getData(city, cc, 'current')
@@ -24,7 +25,7 @@ router.get('/:cc/:city/current', (req, res, next) => {
     });
 });
 
-router.get('/:cc/:city/forecast', (req, res, next) => {
+router.get('/:cc/:city/forecast', countryValidator, (req, res, next) => {
   const { city, cc } = req.params;
   weather
     .getData(city, cc, 'forecast')

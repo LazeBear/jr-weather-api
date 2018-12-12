@@ -12,6 +12,7 @@
   "license": "GNU",
   "dependencies": {
     "axios": "^0.18.0",
+    "country-list": "^2.1.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "helmet": "^3.15.0",

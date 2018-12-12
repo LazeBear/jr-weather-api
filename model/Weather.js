@@ -23,7 +23,6 @@ class Weather {
         current: new CurrentWeather(currentData),
         forecast: forecastData.list.map(i => new ForecastWeather(i))
       };
-      //   console.log(weather);
       cache.set(key, weather);
       filterData(weather, type);
       return weather;
