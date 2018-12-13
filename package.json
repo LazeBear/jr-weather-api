@@ -2,7 +2,7 @@
   "name": "jr-weather-app",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "./src/app.js",
   "scripts": {
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "dev": "pm2-runtime start ecosystem.config.js"

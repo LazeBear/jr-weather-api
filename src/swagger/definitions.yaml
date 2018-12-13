@@ -1,0 +1,75 @@
+definitions:
+  Response:
+    properties:
+      status:
+        type: string
+        description: success or error
+      message:
+        type: string
+        description: error message
+
+  SuccessResponse:
+    allOf:
+      - $ref: '#/definitions/Response'
+      - type: object
+        properties:
+          data:
+            $ref: '#/definitions/Data'
+
+  ErrorResponse:
+    allOf:
+      - $ref: '#/definitions/Response'
+      - type: object
+        properties:
+          data:
+            type: string
+
+  Data:
+    properties:
+      city:
+        $ref: '#/definitions/CityData'
+      current:
+        $ref: '#/definitions/WeatherData'
+      forecast:
+        type: array
+        items:
+          $ref: '#/definitions/ForecastData'
+
+  CityData:
+    properties:
+      name:
+        type: string
+      coord:
+        type: object
+        description: geo coordinates
+      country:
+        type: string
+        description: country code
+      population:
+        type: number
+        description: population of the city
+
+  WeatherData:
+    properties:
+      minCelsius:
+        type: number
+      maxCelsius:
+        type: number
+      minFahrenheit:
+        type: number
+      maxFahrenheit:
+        type: number
+      humidity:
+        type: number
+      windSpeed:
+        type: number
+      windDirection:
+        type: string
+
+  ForecastData:
+    allOf:
+      - $ref: '#/definitions/WeatherData'
+      - type: object
+        properties:
+          time:
+            type: number

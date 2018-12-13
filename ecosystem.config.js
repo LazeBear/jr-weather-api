@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'weather-app',
-      script: './app.js',
+      script: './src/app.js',
       instances: '1',
       env: {
         NODE_ENV: 'development'

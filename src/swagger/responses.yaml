@@ -1,0 +1,18 @@
+responses:
+  Response:
+    200:
+      description: Successfully got the data
+      schema:
+        $ref: '#/definitions/SuccessResponse'
+    400:
+      description: Invalid params
+      schema:
+        $ref: '#/definitions/ErrorResponse'
+    404:
+      description: Data Not Found
+      schema:
+        $ref: '#/definitions/ErrorResponse'
+    505:
+      description: Try again later
+      schema:
+        $ref: '#/definitions/ErrorResponse'

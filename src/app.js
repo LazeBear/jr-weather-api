@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
 const app = express();
-const swaggerSpec = require('./middleware/swagger');
+const swaggerSpec = require('./swagger/swagger');
 const welcome = require('./routes/welcome');
 const weather = require('./routes/weather');
 const logger = require('./services/logger');

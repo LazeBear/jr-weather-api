@@ -1,0 +1,14 @@
+parameters:
+  ccParam:
+    in: path
+    name: cc
+    description: Country code (2 Characters) or Country name
+    required: true
+    type: string
+
+  cityParam:
+    in: path
+    name: city
+    description: City name
+    required: true
+    type: string
