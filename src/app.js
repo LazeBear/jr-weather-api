@@ -1,6 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
+var cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
 const app = express();
@@ -24,6 +25,8 @@ process.on('unhandledRejection', e => {
 });
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.use(cors());
 
 app.use(helmet());
 if (app.get('env') === 'development') {
